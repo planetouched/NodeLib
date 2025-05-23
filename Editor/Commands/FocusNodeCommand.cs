@@ -1,9 +1,9 @@
 ﻿using JsonRawNode;
 using NodeLib.Editor.Nodes;
 using NodeLib.Editor.Serialization;
-using NodeLib.Editor.Undo._Base;
+using NodeLib.Editor.Commands._Base;
 
-namespace NodeLib.Editor.Undo
+namespace NodeLib.Editor.Commands
 {
     public class FocusNodeCommand : CommandBase
     {

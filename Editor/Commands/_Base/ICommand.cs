@@ -1,6 +1,6 @@
 ﻿using NodeLib.Editor.Serialization;
 
-namespace NodeLib.Editor.Undo._Base
+namespace NodeLib.Editor.Commands._Base
 {
     public interface ICommand : ISerialize
     {

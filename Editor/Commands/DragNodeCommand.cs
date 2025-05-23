@@ -1,10 +1,10 @@
 ﻿using JsonRawNode;
 using NodeLib.Editor.Nodes;
 using NodeLib.Editor.Serialization;
-using NodeLib.Editor.Undo._Base;
+using NodeLib.Editor.Commands._Base;
 using UnityEngine;
 
-namespace NodeLib.Editor.Undo
+namespace NodeLib.Editor.Commands
 {
     public class DragNodeCommand : CommandBase
     {

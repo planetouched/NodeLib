@@ -9,8 +9,8 @@ using NodeLib.Editor.EditorResources;
 using NodeLib.Editor.Navigations;
 using NodeLib.Editor.Nodes;
 using NodeLib.Editor.Serialization;
-using NodeLib.Editor.Undo;
-using NodeLib.Editor.Undo._Base;
+using NodeLib.Editor.Commands;
+using NodeLib.Editor.Commands._Base;
 using UnityEditor;
 using UnityEngine;
 
