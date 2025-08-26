@@ -52,6 +52,7 @@ namespace NodeLib.Editor.Nodes
                 }
 
                 _focused = value;
+                OnFocused();
             }
         }
 
@@ -79,6 +80,10 @@ namespace NodeLib.Editor.Nodes
 
             Id = data.GetString("id");
             Initialize(data);
+        }
+
+        protected virtual void OnFocused()
+        {
         }
 
         protected abstract void OnInitialize(RawNode rawData);
