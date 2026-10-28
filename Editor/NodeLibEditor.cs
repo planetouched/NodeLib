@@ -516,7 +516,7 @@ namespace NodeLib.Editor
             
             if (e.type == EventType.KeyUp)
             {
-                if (e.keyCode == KeyCode.RightAlt)
+                if (e.keyCode == KeyCode.RightAlt || e.keyCode== KeyCode.F12)
                 {
                     _navigationWindow.Enable = false;
                     GUI.changed = true;
@@ -530,7 +530,7 @@ namespace NodeLib.Editor
 
             if (e.type == EventType.KeyDown)
             {
-                if (e.keyCode == KeyCode.RightAlt)
+                if (e.keyCode == KeyCode.RightAlt || e.keyCode== KeyCode.F12)
                 {
                     _navigationWindow.Enable = true;
                     GUI.changed = true;
@@ -542,7 +542,7 @@ namespace NodeLib.Editor
                     e.Use();
                     return;
                 }
-
+                
                 if (e.control && e.keyCode == KeyCode.Z)
                 {
                     UndoCommand();
@@ -550,7 +550,7 @@ namespace NodeLib.Editor
                     return;
                 }
 
-                if (e.control && e.keyCode == KeyCode.Delete && _startOutPort == null)
+                if (e.control && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace) && _startOutPort == null)
                 {
                     var focused = FindFocusedNode();
                     if (focused != null)
@@ -641,6 +641,12 @@ namespace NodeLib.Editor
             if (e.type == EventType.MouseDrag)
             {
                 if (e.button == 2 && !e.control)
+                {
+                    ContentOffset += e.delta;
+                    GUI.changed = true;
+                }
+
+                if (e.button == 0 && e.alt) //OSX
                 {
                     ContentOffset += e.delta;
                     GUI.changed = true;

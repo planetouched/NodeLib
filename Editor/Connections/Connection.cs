@@ -22,6 +22,8 @@ namespace NodeLib.Editor.Connections
         
         public bool PendingDestroy { get; set; }
         public Rect DestroyButtonRect { get; private set; }
+
+        private bool _lastMouseButton0;
         
         public Connection(ConnectionPort outPort, ConnectionPort inPort)
         {
@@ -96,10 +98,16 @@ namespace NodeLib.Editor.Connections
             Handles.color = Color.red;
 
             DestroyButtonRect = new Rect(p[1] - Vector3.one * Size, Vector2.one * (Size * 2));
+
+            var e = Event.current;
+            _lastMouseButton0 = e.button == 0;
             
             if (Handles.Button(DestroyButtonRect.center, Quaternion.identity, DestroyButtonRect.width / 2, DestroyButtonRect.width, Handles.DotHandleCap))
             {
-                PendingDestroy = true;
+                if (_lastMouseButton0)
+                {
+                    PendingDestroy = true;
+                }
             }
         }
 
